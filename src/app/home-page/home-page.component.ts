@@ -26,16 +26,16 @@ export class HomePageComponent implements OnInit {
         // },  5000);
 
         var images = $('.slideshow__photo');
-        var imgWidth = $('.slideshow').width();
+        var imgWidth = $('.slideshow__photo').height();
 
         var imagesCount = images.length;
         var currImage = 1;
         var lastElem = imagesCount;
 
         function sliderResponse(prevImage, currImage) {
-            $(`.slideshow__photo--${currImage}`).animate({ left: `0`}, 1000);
-            $(`.slideshow__photo--${prevImage}`).animate({ left: `-${imgWidth}px`}, 1000, function () {
-                $(`.slideshow__photo--${prevImage}`).css({ left: `100%`});
+            $(`.slideshow__photo--${currImage}`).animate({ bottom: `0`}, 1000);
+            $(`.slideshow__photo--${prevImage}`).animate({ bottom: `-${imgWidth}px`}, 1000, function () {
+                $(`.slideshow__photo--${prevImage}`).css({ bottom: `100%`});
             });
         }
 

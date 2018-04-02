@@ -1,5 +1,5 @@
 .section-story {
-    height: 115vh;
+    height: 122vh;
     margin-top: -15vh;  
     background-color: $color-background;
 }
@@ -12,13 +12,16 @@
 }
 
 .story-div {
-    width: 30%;
+    width: 35%;
     height: 70vh;
+
+    position: relative;
 }
 
 .slideshow {
     position: relative;
-    width: 70%;
+    height: 70vh;
+    width: 65%;
     overflow:hidden;
 
     &__photo {
@@ -30,7 +33,7 @@
         
         &:not(:first-of-type) {
             position: absolute;
-            left: 100%;
+            bottom: 100%;
         }
 
         &--1 {
