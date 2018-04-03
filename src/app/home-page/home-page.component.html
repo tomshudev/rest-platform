@@ -7,7 +7,7 @@
             <ul class="main-nav">
                 <li class="main-nav__item"><a class="main-nav__link" routerLink="/order">Order food</a></li>
                 <li class="main-nav__item"><a class="main-nav__link" href="/home#story">Our story</a></li>
-                <li class="main-nav__item"><a class="main-nav__link" href="#">Contact us</a></li>
+                <li class="main-nav__item"><a class="main-nav__link" href="/home#contact">Contact us</a></li>
                 <li class="main-nav__item"><a class="main-nav__link" href="#">Location</a></li>
             </ul>
         </div>
@@ -46,9 +46,30 @@
         <div class="bg-video">
             <video class="bg-video__content" autoplay muted loop>
                 <source src="assets/video/video.mp4" type="video/mp4">
-                <source src="assets/video/video2.webm" type="video/webm">
+                <source src="assets/video/video.webm" type="video/webm">
                 Your browser is not supported!
             </video>    
+        </div>
+    </section>
+
+    <section class="section-contact">
+        <div class="contact-div" id="contact">
+            <div class="contact-div-box">
+                <h2 class="heading--tertiary">contact us</h2>
+
+                <form action="#" class="form">
+
+                    <div class="form__group">
+                        <input type="text" class="form__input" id="name" placeholder="Full name" required>
+                        <label for="name" class="form__label">Full name</label>
+                    </div>
+
+                    <div class="form__group">
+                        <input type="email" class="form__input" id="email" placeholder="Email address" required>
+                        <label for="email" class="form__label">Email address</label>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 </main>
