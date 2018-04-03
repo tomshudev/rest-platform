@@ -57,7 +57,7 @@
             <div class="contact-div-box">
                 <h2 class="heading--tertiary">contact us</h2>
 
-                <form action="#" class="form">
+                <form action="#" class="form" id="contact-form">
 
                     <div class="form__group">
                         <input type="text" class="form__input" id="name" placeholder="Full name" required>
@@ -67,6 +67,15 @@
                     <div class="form__group">
                         <input type="email" class="form__input" id="email" placeholder="Email address" required>
                         <label for="email" class="form__label">Email address</label>
+                    </div>
+
+                    <div class="form__group">
+                        <textarea id="message" class="form__input" rows="4" placeholder="Your message" required></textarea>
+                        <label for="message" class="form__label">Your message</label>
+                    </div>
+
+                    <div class="form__group">
+                        <button class="btn btn--send">Send &rarr;</button>
                     </div>
                 </form>
             </div>
