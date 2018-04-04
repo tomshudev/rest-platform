@@ -1,0 +1,64 @@
+.footer {
+    background-color: $color-black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $color-link;
+    font-size: 1.5rem;
+
+    &--logo {
+        fill: $color-primary;
+        font-size: 15rem;
+        padding: 5rem 0;
+    }
+
+    &__row {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__navigation,
+    &__copyright {
+        width: 50%;
+        padding: 3rem;
+        border-top: 1px solid $color-link;
+    }
+
+    &__navigation {
+        margin: 0 10rem 3rem;
+    }
+
+    &__copyright {
+        margin: 0 10rem 3rem;
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        align-items: center;
+
+        &--item:not(:last-of-type) {
+            margin-right: 2rem;
+        }
+    }
+
+    &__link {
+        &:link,
+        &:visited {
+            text-decoration: none;
+            color: $color-link;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all .3s;
+        }
+
+        &:hover,
+        &:active {
+            transform: scale(1.15);
+            background-color: $color-black;
+            box-shadow: 0 1rem 2rem  rgba(#000, .3);
+            color: $color-primary;
+        }
+    }
+}
