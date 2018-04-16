@@ -12,6 +12,14 @@
             transform: skewY(2deg) skewX(5deg) scale(1.1);
             text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
         }
+
+        @include respond(tab-port) {
+            font-size: 4rem;
+        }
+
+        @include respond(phone) {
+            padding-left: 1.5rem;
+        }
     }
 
     &--secondary {
@@ -21,6 +29,14 @@
         letter-spacing: .5rem;
 
         animation: moveInRight 1.5s ease-in-out;
+
+        @include respond(tab-port) {
+            font-size: 2rem;
+        }
+
+        @include respond(phone) {
+            padding-left: .5rem;
+        }
     }
 
     &--tertiary {

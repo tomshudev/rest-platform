@@ -24,6 +24,11 @@
     @include respond(tab-land) {
         height: fit-content;
         margin-bottom: 3rem;
+        width: 65%;
+    }
+
+    @include respond(phone) {
+        width: 85%;
     }
 }
 
@@ -32,6 +37,11 @@
     height: 55rem;
     width: 65%;
     overflow:hidden;
+
+    @include respond(phone) {
+        width: 85%;
+        height: 25rem;
+    }
 
     &__photo {
         position: absolute;
