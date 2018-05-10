@@ -1,0 +1,7 @@
+<div class="menu">
+    <app-order-menu-category-chooser [categories]="categories"></app-order-menu-category-chooser>
+    <div class="categories-flex">
+        <app-order-menu-category *ngFor="let category of categories" [category]="category" id="{{category._id}}"></app-order-menu-category>
+    </div>
+    <app-order-menu-details></app-order-menu-details>
+</div>

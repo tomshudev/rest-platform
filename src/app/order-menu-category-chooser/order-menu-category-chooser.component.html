@@ -1,0 +1,4 @@
+<div class="category-chooser">
+    <div class="category-chooser__name" *ngFor="let category of categories" id="chooser-{{category._id}}" 
+          (click)="selectCategory(category._id)" [ngClass]="(selectedCategoryID===category._id) ? 'category-chooser__name--active' : ''">{{category.title}}</div>
+</div>
