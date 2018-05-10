@@ -1,13 +1,28 @@
 @import '../../assets/global_variables.scss';
 
 .serving {
+    display: flex;
+
     position: relative;
     font-size: 1.6rem;
     padding: 2rem;
     margin: 1rem 0;
 
+    height: 20rem;
+
     border: 1px solid $color-black;
     border-radius: 3px;
+
+    &__photo {
+        margin-left: -2rem;
+        margin-top: -2rem;
+        height: 20rem;
+        width: 22%;
+    }
+
+    &__details {
+        margin-left: 2rem;
+    }
 
     &__name {
         text-transform: capitalize;
