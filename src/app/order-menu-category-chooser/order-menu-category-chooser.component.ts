@@ -12,13 +12,16 @@ export class OrderMenuCategoryChooserComponent implements OnInit {
 
   @Input() categories: object;
 
-
   selectedCategoryID: String;
 
   constructor() { }
 
   selectCategory(id) {
-    this.selectedCategoryID = id;
+      this.selectedCategoryID = id;
+
+      $('html, body').animate({
+          scrollTop: $(`#category-${id}`).offset().top - 50
+      }, 1000);
   }
 
   ngOnInit() {

@@ -12,7 +12,6 @@ export class OrderMenuCategoryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.category)
   }
 
 }

@@ -14,13 +14,13 @@
     position: fixed;
 
     &__name {
-        padding: 1rem 0;
+        padding: 1rem;
         transition: all .2s;
         cursor: pointer;
         text-align: center;
         width: fit-content;
 
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         text-transform: uppercase;
 
         &:not(:last-of-type) {
