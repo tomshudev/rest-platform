@@ -20,7 +20,7 @@ export class OrderMenuCategoryChooserComponent implements OnInit {
       this.selectedCategoryID = id;
 
       $('html, body').animate({
-          scrollTop: $(`#category-${id}`).offset().top - 50
+          scrollTop: $(`#category-${id}`).offset().top
       }, 1000);
   }
 
