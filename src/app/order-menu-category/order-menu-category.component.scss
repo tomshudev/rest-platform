@@ -2,7 +2,7 @@
 
 .category {
 
-    &__headline {
+    &__headline {    
         width: 50%;
         position: relative;
         background-color: $color-black;
@@ -10,6 +10,7 @@
         clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
         padding: 0 10%;
         color: #fff;
+        margin-top: 5rem;
 
         display: flex;
         flex-direction: column;
