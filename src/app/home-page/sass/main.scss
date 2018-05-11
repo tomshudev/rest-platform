@@ -1,0 +1,22 @@
+.row {
+    width: 114rem;
+    margin: 0 auto;
+
+    @include respond(tab-land) {
+        width: 100%;
+    }
+}
+
+html  {
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+
+    @include respond(phone) {
+        font-size: 40%;
+    }
+}

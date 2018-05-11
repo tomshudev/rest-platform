@@ -1,0 +1,81 @@
+.section-story {
+    padding: 10rem 0 20rem;
+    margin-top: -18vh;
+    background-color: $color-background;
+}
+
+.story-row {
+    padding-top: 10vh;
+    display: flex;
+    justify-content: flex-start;
+
+    @include respond(tab-land) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.story-div {
+    width: 35%;
+    height: 55rem;
+
+    position: relative;
+
+    @include respond(tab-land) {
+        height: fit-content;
+        margin-bottom: 3rem;
+        width: 65%;
+    }
+
+    @include respond(phone) {
+        width: 85%;
+    }
+}
+
+.slideshow {
+    position: relative;
+    height: 55rem;
+    width: 65%;
+    overflow:hidden;
+
+    @include respond(phone) {
+        width: 85%;
+        height: 25rem;
+    }
+
+    &__photo {
+        position: absolute;
+        width: 100%;
+        height: 55rem;
+        background-size: cover;
+        filter: brightness(85%);
+        
+        &:not(:first-of-type) {
+            position: absolute;
+            bottom: 100%;
+        }
+
+        &--1 {
+            background-image: url(img/slideshow/1.jpg);
+        }
+
+        &--2 {
+            background-image: url(img/slideshow/2.jpg);
+        }
+
+        &--3 {
+            background-image: url(img/slideshow/3.jpg);
+            background-position: top left;
+        }
+
+        &--4 {
+            background-image: url(img/slideshow/4.jpg);
+            background-position: center;
+        }
+
+        &--5 {
+            background-image: url(img/slideshow/5.jpg);
+            background-position: bottom;
+        }
+    }
+}

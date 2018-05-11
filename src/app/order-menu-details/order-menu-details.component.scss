@@ -1,0 +1,105 @@
+@import '../../assets/global_variables.scss';
+
+.order-details {
+    display: flex;
+    flex-direction: column;
+
+    width: 30rem;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid $color-black;
+    font-size: 1.8rem;
+
+    margin: 5rem;
+    right: 0;
+    top: 0;
+
+    &__title {
+        font-size: 2rem;
+        width: 100%;
+        padding-bottom: 2rem;
+
+        border-bottom: 1px solid $color-black;
+    }
+
+    &__method {
+        display: flex;
+        justify-content: center;
+
+        &--button {
+            margin: 2rem 1rem;
+        }
+    }
+
+    &__overview {
+
+        &--headline {
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        &--minprice {
+            font-weight: 300;
+        }
+
+        &--delivery-time {
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+
+            &-stamp {
+                margin-left: auto;
+                font-weight: 300;
+            }
+        }
+
+        &--price {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+            font-weight: 700;
+
+            &-none-delivery {
+                font-size: 1.2rem;
+                font-weight: 300;
+            }
+
+            &-tag {
+                margin-left: auto;
+            }
+        }
+
+        &--order-notes {
+            height: 80px;
+            resize: none;
+
+            font-family: inherit;
+            font-size: inherit;
+            color: inherit;
+
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__order-button {
+        margin-left: auto;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        background: aqua;
+        cursor: pointer;
+        transition: all .2s;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+textarea {
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}

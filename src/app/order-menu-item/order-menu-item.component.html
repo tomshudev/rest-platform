@@ -1,0 +1,13 @@
+<div class="serving">
+    <img src="assets/img/{{serving.photo}}" alt="{{serving.name}}" class="serving__photo">
+    <div class="serving__details">
+        <div class="serving__name">{{serving.name}}</div>
+
+        <div class="serving__flex">
+          <div class="serving__description">{{serving.description}}{{serving.description}}{{serving.description}}{{serving.description}}{{serving.description}}{{serving.description}}</div>
+          <div class="serving__price">{{serving.price}}$</div>
+        </div>
+
+        <div class="serving__add" ng-click="addServing(serving._id)">Add to cart &#43;</div>
+    </div>
+</div>
