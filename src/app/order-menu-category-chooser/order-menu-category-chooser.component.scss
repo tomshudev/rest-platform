@@ -3,12 +3,13 @@
 .category-chooser {
     padding: 2rem;
     border-radius: 10px;
-    border: 1px solid $color-black;
+    border: 2px solid $color-dark-gray-1;
     width: 20rem;
     min-width: 20rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #fff;
 
     margin: 5rem;
     position: fixed;
@@ -33,7 +34,7 @@
 
         &--active {
             color: #fff;
-            background-color: aqua;
+            background-color: $color-yellow-1;
             border-radius: 10px;
         }
     }
