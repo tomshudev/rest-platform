@@ -21,7 +21,7 @@ export class OrderMenuDetailsCartItemComponent implements OnInit {
   removeItem() {
       // Adding transition to the removed item, and than removing the item from the cart
       $(`#item-${this.item._cartID}`).addClass('cart-item__after-remove');
-      setTimeout(() => this.cartService.removeItem(this.item), 400);
+      setTimeout(() => this.cartService.removeItem(this.item), 200);
   }
 
   ngOnInit() {

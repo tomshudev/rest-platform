@@ -11,7 +11,7 @@
     padding-bottom: 2rem;
     font-size: 1.4rem;
 
-    left: -3px;
+    left: -50px;
     opacity: 0;
     transition: all .4s;
 
@@ -21,7 +21,7 @@
     }
 
     &__after-remove {
-        left: 20%;
+        left: 50%;
         opacity: 0;
 
         transition: all .2s;
