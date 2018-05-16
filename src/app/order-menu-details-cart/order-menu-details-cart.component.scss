@@ -1,6 +1,8 @@
 .cart {
     padding: 1rem;
-    margin: 2rem 0;
+    padding-top: 0;
+    margin-bottom: 1rem;
+
     max-height: calc(100vh - 57rem);
     overflow-y: auto;
     overflow-x: hidden;
