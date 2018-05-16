@@ -15,6 +15,7 @@ import { OrderMenuDetailsComponent } from './order-menu-details/order-menu-detai
 import { CartService } from './services/cart.service';
 import { OrderMenuDetailsCartComponent } from './order-menu-details-cart/order-menu-details-cart.component';
 import { OrderMenuDetailsCartItemComponent } from './order-menu-details-cart-item/order-menu-details-cart-item.component';
+import { Constants } from './services/constants.service';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { OrderMenuDetailsCartItemComponent } from './order-menu-details-cart-ite
   ],
   providers: [
     DataService,
-    CartService
+    CartService,
+    Constants
   ],
   bootstrap: [AppComponent]
 })

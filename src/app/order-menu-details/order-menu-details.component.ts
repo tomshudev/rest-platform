@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService, CartEventListener } from '../services/cart.service';
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Constants } from '../services/constants.service';
 
 declare var $:any;
 
@@ -12,9 +13,12 @@ declare var $:any;
 export class OrderMenuDetailsComponent implements OnInit, CartEventListener {
 
   cart = null;
+  method = null;
 
-  constructor(private cartService: CartService) { 
+  constructor(private cartService: CartService, private constants: Constants) { 
       this.cartService.subscribe(this);
+
+      this.method = constants.orderMethods.order;
   }
 
   /**
@@ -34,6 +38,14 @@ export class OrderMenuDetailsComponent implements OnInit, CartEventListener {
    */
   itemRemoved(cart: any) {
     this.cart = cart;
+  }
+
+  changeMethod(method) {
+    if (this.method !== method) {
+        this.method = method;
+
+        $('#order-method-slider').prop('checked', !$('#order-method-slider').prop('checked'))
+    }
   }
 
   /**
