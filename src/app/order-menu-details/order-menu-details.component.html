@@ -11,10 +11,15 @@
         <div class="order-details__overview--price">
             Price 
             <span class="order-details__overview--price-none-delivery">&nbsp; (Not including delivery)</span> 
-            <span class="order-details__overview--price-tag">0.00$</span>
+            <span class="order-details__overview--price-tag">{{getCartPrice()}}$</span>
         </div>
+
+        <app-order-menu-details-cart [cart]="cart"></app-order-menu-details-cart>
+
         <textarea class="order-details__overview--order-notes" name="order-notes" id="order-notes" placeholder="Order notes"></textarea>
     </div>
 
     <div class="order-details__order-button">Order &rarr;</div>
+
+    
 </div>

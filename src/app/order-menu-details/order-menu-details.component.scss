@@ -10,6 +10,7 @@
     background-color: #fff;
     font-size: 1.8rem;
 
+    position: fixed;
     margin: 5rem;
     right: 0;
     top: 0;
@@ -41,6 +42,7 @@
         }
 
         &--minprice {
+            font-size: 1.4rem;
             font-weight: 300;
         }
 
