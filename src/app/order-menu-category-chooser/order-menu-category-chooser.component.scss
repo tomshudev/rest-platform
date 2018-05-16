@@ -13,6 +13,14 @@
     margin: 5rem;
     position: fixed;
 
+    overflow-y: auto;
+    max-height: calc(100% - 10rem);
+
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: none;
+        background-color: transparent;
+    }
+
     &__name {
         padding: 1rem;
         transition: all .2s;

@@ -4,4 +4,9 @@
     max-height: calc(100vh - 57rem);
     overflow-y: auto;
     overflow-x: hidden;
+
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: none;
+        background-color: #fff;
+    }
 }
