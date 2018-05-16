@@ -25,6 +25,8 @@ export class OrderMenuComponent implements OnInit {
             if (elem.position().top <= scrollTop + 50) {
                 $('.category-chooser__name').removeClass('category-chooser__name--active');
                 $(`#chooser-${elem.attr('id')}`).addClass('category-chooser__name--active');
+
+                $('.category-chooser').animate({ scrollTop: $(`#chooser-${elem.attr('id')}`).offset().top - $('.category-chooser').offset().top + $('.category-chooser').scrollTop() - 20 }, 0);
             }
         })
     });
