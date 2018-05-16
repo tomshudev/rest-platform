@@ -1,13 +1,16 @@
 <div class="order-details">
     <div class="order-details__title">Your order</div>
     <div class="order-details__method">
-        <div class="order-details__method--button order-details__order-button">Order</div>
-        <div class="order-details__method--button order-details__order-button">Self picking</div>
+        <input type="checkbox" name="method-slider" id="order-method-slider" class="order-details__method--checkbox">
+        <div class="order-details__method--button order-details__method--button--active" id="order-method-slider--button"></div>
+
+        <div class="order-details__method--button order-details__method--button-left" (click)="changeMethod(constants.orderMethods.order)">Order</div>
+        <div class="order-details__method--button order-details__method--button-right" (click)="changeMethod(constants.orderMethods.picking)">Self picking</div>
     </div>
     <div class="order-details__overview">
-        <div class="order-details__overview--headline">Order overview <span class="order-details__overview--minprice" >(Minimum order price 50$)</span></div>
+        <div class="order-details__overview--headline">Order overview <span class="order-details__overview--minprice" *ngIf="method === constants.orderMethods.order">(Minimum order price 50$)</span></div>
 
-        <div class="order-details__overview--delivery-time"><div class="order-details__overview--delivery-time-headline">ETA</div> <div class="order-details__overview--delivery-time-stamp">70-75 min</div></div>
+        <div class="order-details__overview--delivery-time" *ngIf="method === constants.orderMethods.order"><div class="order-details__overview--delivery-time-headline">ETA</div> <div class="order-details__overview--delivery-time-stamp">70-75 min</div></div>
         <div class="order-details__overview--price">
             Price 
             <span class="order-details__overview--price-none-delivery">&nbsp; (Not including delivery)</span> 
