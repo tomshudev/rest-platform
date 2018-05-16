@@ -1,0 +1,19 @@
+<div class="cart-item" id="item-{{item._cartID}}">
+    <div class="cart-item__main-details">
+        <img src="assets/img/{{item.photo}}" alt="{{item.name}}" class="cart-item__photo">
+
+        <div class="cart-item__main-details--text">
+            <div class="cart-item__main-details--text-aligned">
+                <div class="cart-item__name">{{item.name}}</div>
+                <div class="cart-item__price">{{item.price}}$</div>
+            </div>
+            <div class="cart-item__description">{{item.description}}</div>
+        </div>
+    </div>
+
+    <div class="cart-item__buttons">
+        <div class="cart-item__buttons--button fa fa-edit"></div>
+        <div class="cart-item__buttons--button fa fa-plus" (click)="addItem()"></div>
+        <div class="cart-item__buttons--button fa fa-trash" (click)="removeItem()"></div>
+    </div>
+</div>

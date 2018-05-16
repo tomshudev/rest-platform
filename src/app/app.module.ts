@@ -12,6 +12,9 @@ import { OrderMenuCategoryComponent } from './order-menu-category/order-menu-cat
 import { DataService } from './services/data.service';
 import { OrderMenuCategoryChooserComponent } from './order-menu-category-chooser/order-menu-category-chooser.component';
 import { OrderMenuDetailsComponent } from './order-menu-details/order-menu-details.component';
+import { CartService } from './services/cart.service';
+import { OrderMenuDetailsCartComponent } from './order-menu-details-cart/order-menu-details-cart.component';
+import { OrderMenuDetailsCartItemComponent } from './order-menu-details-cart-item/order-menu-details-cart-item.component';
 
 
 @NgModule({
@@ -23,14 +26,17 @@ import { OrderMenuDetailsComponent } from './order-menu-details/order-menu-detai
     OrderMenuItemComponent,
     OrderMenuCategoryComponent,
     OrderMenuCategoryChooserComponent,
-    OrderMenuDetailsComponent
+    OrderMenuDetailsComponent,
+    OrderMenuDetailsCartComponent,
+    OrderMenuDetailsCartItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   providers: [
-    DataService
+    DataService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })
