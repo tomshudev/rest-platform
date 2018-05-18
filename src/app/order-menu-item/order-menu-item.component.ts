@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
 import { CartService } from '../services/cart.service';
+import { ItemModalService } from '../services/item-modal.service';
 
 @Component({
   selector: 'app-order-menu-item',
@@ -9,12 +10,12 @@ import { CartService } from '../services/cart.service';
 })
 export class OrderMenuItemComponent implements OnInit {
 
-  @Input() serving: object;
+  @Input() serving;
 
-  constructor(private cartService: CartService) { }
+  constructor(private modalService: ItemModalService) { }
 
-  addItem(item) {
-      this.cartService.addItem(item);
+  addItem() {
+      this.modalService.selectItem(this.serving);
   }
 
   ngOnInit() {

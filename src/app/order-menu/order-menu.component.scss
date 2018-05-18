@@ -1,3 +1,5 @@
+@import '../../assets/global_variables.scss';
+
 .menu {
     position: relative;
     display: flex;
@@ -11,4 +13,24 @@
     margin-top: 5rem;
     position: relative;
     top: -5rem;
+}
+
+app-order-menu-item-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 70%;
+    z-index: 1000;
+}
+
+.low-brightness-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+
+    background-color: rgba(#000, .6);
 }

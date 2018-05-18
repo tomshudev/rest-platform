@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { ItemModalListener, ItemModalService } from '../services/item-modal.service';
 declare var $:any;
 
 @Component({
@@ -7,12 +8,18 @@ declare var $:any;
   templateUrl: './order-menu.component.html',
   styleUrls: ['./order-menu.component.scss']
 })
-export class OrderMenuComponent implements OnInit {
+export class OrderMenuComponent implements OnInit, ItemModalListener {
+  
+  categories = null;
+  selectedItem = undefined;
 
-  categories = null
+  constructor(private dataService: DataService, private modalService: ItemModalService) { 
+    this.categories = this.dataService.getData();
+    this.modalService.subscribe(this);
+  }
 
-  constructor(private dataService: DataService) { 
-    this.categories = this.dataService.getData()
+  itemSelected(item: any) {
+    this.selectedItem = item;
   }
 
   ngOnInit() {
@@ -21,7 +28,7 @@ export class OrderMenuComponent implements OnInit {
 
         // If the scrolling top has enterd into the menu - set the needed parts as fixed,
         // Otherwise, set it as normal without fixed position
-        if ($('#menu-div').position().top <= scrollTop) {
+        if ($('#menu-div').length !== 0 && $('#menu-div').position().top <= scrollTop) {
               $('.category-chooser').css({ 
                 'position': 'fixed',
                 top: 0
