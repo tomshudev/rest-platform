@@ -1,0 +1,50 @@
+@import '../../assets/global_variables.scss';
+
+.header {
+
+    position: relative;
+    height: 35rem;
+    background-image: url(../../assets/img/1.jpg);
+    background-position: center;
+
+    &__headline {
+
+    }
+
+    &__nav {
+        
+        position: absolute;
+        bottom: 0;
+        height: 5rem;
+        width: 100%;
+        background-color: rgba(#000, .7);
+
+        display: flex;
+        align-items: center;
+        color: $color-light-gray-1;
+        font-size: 1.8rem;
+        font-weight: 300;
+        padding: 0 8rem;
+
+        &--link {
+            margin-top: .4rem;
+            cursor: pointer;
+            padding-bottom: .2rem;
+            border-bottom: 1px solid transparent;
+            transition: all .3s;
+
+            &:hover {
+                border-bottom: 1px solid $color-yellow-1;
+                box-shadow: 0 1rem 2rem rgba(#000, .3);
+            }
+        }
+
+        &--left {
+            margin-right: auto;
+        }
+
+        &--right {
+
+        }
+    }
+}
