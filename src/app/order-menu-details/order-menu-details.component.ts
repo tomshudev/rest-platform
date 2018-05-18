@@ -19,6 +19,8 @@ export class OrderMenuDetailsComponent implements OnInit, CartEventListener {
       this.cartService.subscribe(this);
 
       this.method = constants.orderMethods.order;
+
+      this.cart = this.cartService.getCart();
   }
 
   /**

@@ -24,6 +24,10 @@ export class CartService {
       return this.cartElement;
   }
 
+  getCart() {
+      return this.cart;
+  }
+
   subscribe(listener: CartEventListener) {
       this.subscribers.push(listener);
   }
