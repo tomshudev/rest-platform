@@ -1,0 +1,95 @@
+@import '../../assets/global_variables.scss';
+
+.header {
+
+    position: relative;
+    height: 35rem;
+    background-image: url(../../assets/img/1.jpg);
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-light-gray-1;
+
+    &__headline {
+        font-size: 6rem;
+
+        padding: 2rem 4rem;
+        background-color: rgba(#000, .6);
+        border-radius: 15px;
+    }
+
+    &__nav {
+        
+        position: absolute;
+        bottom: 0;
+        height: 5rem;
+        width: 100%;
+        background-color: rgba(#000, .5);
+
+        display: flex;
+        align-items: center;
+        font-size: 1.8rem;
+        font-weight: 300;
+        padding: 0 8rem;
+
+        &--link {
+            margin: 0 2rem;
+            margin-top: .4rem;
+            cursor: pointer;
+            padding-bottom: .2rem;
+            border-bottom: 1px solid transparent;
+        }
+
+        &--call {
+            margin-top: .3rem;
+            border-bottom: 1px solid transparent;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+
+            &-icon {
+                margin-top: .5rem;
+                margin-right: .5rem;
+            }
+        }
+
+        &--rest-status {
+            display: flex;
+            align-items: center;
+            margin-top: .4rem;
+            border-radius: 100px;
+            padding: 0 2rem;
+
+            &--opened {
+                background-color: rgba(#00b894, .3);
+            }
+
+            &--closed {
+                background-color: rgba(#d63031, .5);
+            }
+        }
+
+        &--link:hover,
+        &--link:active,
+        &--link:focus,
+        &--call:hover,
+        &--call:active,
+        &--call:focus {
+            transition: all .3s;
+            border-bottom: 1px solid $color-yellow-1;
+            box-shadow: 0 1rem 2rem rgba(#000, .3);
+            outline: none;
+        }
+
+        &--left {
+            display: flex;
+            margin-right: auto;
+        }
+
+        &--right {
+            display: flex;
+        }
+    }
+}

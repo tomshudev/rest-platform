@@ -1,4 +1,6 @@
-<div class="menu">
+<app-order-menu-header [isOpened]="false"></app-order-menu-header>
+
+<div class="menu" id="menu-div">
     <app-order-menu-category-chooser [categories]="categories"></app-order-menu-category-chooser>
     <div class="categories-flex">
         <app-order-menu-category *ngFor="let category of categories" [category]="category" id="category-{{category._id}}"></app-order-menu-category>

@@ -19,6 +19,28 @@ export class OrderMenuComponent implements OnInit {
       $(window).scroll(() => {
         var scrollTop = $(window).scrollTop();
 
+        // If the scrolling top has enterd into the menu - set the needed parts as fixed,
+        // Otherwise, set it as normal without fixed position
+        if ($('#menu-div').position().top <= scrollTop) {
+              $('.category-chooser').css({ 
+                'position': 'fixed',
+                top: 0
+              });
+              $('.order-details').css({ 
+                'position': 'fixed',
+                top: 0
+              });
+            $('.categories-flex').css({ 'margin-left': '30rem' });
+        } else {
+            $('.category-chooser').css({ 
+              'position': 'relative',
+            });
+            $('.order-details').css({ 
+              'position': 'relative',
+            });
+            $('.categories-flex').css({ 'margin-left': '0' });
+        }
+
         $('app-order-menu-category').each((i) => {
           var elem = $($('app-order-menu-category')[i]);
 
