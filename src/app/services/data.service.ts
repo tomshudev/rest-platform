@@ -18,25 +18,7 @@ export class DataService {
             "photo": "17.jpg",
             "price": "23.2356",
             "description": "quis nostrud cupidatat ipsum adipisicing sint",
-            "ingredients_cats": [
-              {
-                "name": "ex",
-                "ingredients": [
-                  {
-                    "name": "eiusmod"
-                  },
-                  {
-                    "name": "et"
-                  },
-                  {
-                    "name": "non"
-                  },
-                  {
-                    "name": "aliqua"
-                  }
-                ]
-              }
-            ]
+            "ingredients_cats": null
           },
           {
             "_id": "5afc5cca570157cc2c2bc56a",
