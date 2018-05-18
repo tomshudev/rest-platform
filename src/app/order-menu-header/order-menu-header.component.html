@@ -4,9 +4,13 @@
     <div class="header__nav">
         <div class="header__nav--left">
           <div class="header__nav--link" routerLink="/home">Home</div>
+          <a class="header__nav--call" href="tel:0548194024">
+              <i class="header__nav--call-icon fa fa-phone"></i> 054-8194024
+          </a>
         </div>
         <div class="header__nav--right">
             <div class="header__nav--link">Openning hours</div>
+            <div class="header__nav--rest-status" [ngClass]="isOpened ? 'header__nav--rest-status--opened' : 'header__nav--rest-status--closed'">{{isOpened ? 'Open' : 'Closed' }}</div>
         </div>
     </div>
 </div>
