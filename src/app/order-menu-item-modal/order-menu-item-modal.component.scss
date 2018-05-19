@@ -124,5 +124,7 @@
 
     &__chooser {
         padding: 2rem;
+        height: calc(100% - 30rem);
+        overflow-y: auto;
     }
 }

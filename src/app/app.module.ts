@@ -20,6 +20,7 @@ import { OrderMenuHeaderComponent } from './order-menu-header/order-menu-header.
 import { OrderMenuItemModalComponent } from './order-menu-item-modal/order-menu-item-modal.component';
 import { ItemModalService } from './services/item-modal.service';
 import { OrderMenuItemModalOptionComponent } from './order-menu-item-modal-option/order-menu-item-modal-option.component';
+import { OrderMenuItemModalOptionPossibilityComponent } from './order-menu-item-modal-option-possibility/order-menu-item-modal-option-possibility.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { OrderMenuItemModalOptionComponent } from './order-menu-item-modal-optio
     OrderMenuDetailsCartItemComponent,
     OrderMenuHeaderComponent,
     OrderMenuItemModalComponent,
-    OrderMenuItemModalOptionComponent
+    OrderMenuItemModalOptionComponent,
+    OrderMenuItemModalOptionPossibilityComponent
   ],
   imports: [
     BrowserModule,
