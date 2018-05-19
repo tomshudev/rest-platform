@@ -11,7 +11,84 @@ declare var $:any;
 export class OrderMenuComponent implements OnInit, ItemModalListener {
   
   categories = null;
-  selectedItem = undefined;
+  selectedItem = {
+    "_id": "5b002fc4078f7d6810bc033a",
+    "name": "non aute",
+    "photo": "5.jpg",
+    "price": "22.2156",
+    "description": "labore officia incididunt voluptate sunt adipisicing",
+    "options": [
+      {
+        "headline": "mollit nostrud veniam",
+        "min": 0,
+        "max": 0,
+        "options": [
+          {
+            "name": "adipisicing pariatur",
+            "price": 3
+          },
+          {
+            "name": "et exercitation",
+            "price": 1
+          },
+          {
+            "name": "eiusmod laborum",
+            "price": 3
+          },
+          {
+            "name": "irure anim",
+            "price": 0
+          }
+        ]
+      },
+      {
+        "headline": "sit minim Lorem",
+        "min": 2,
+        "max": 0,
+        "options": [
+          {
+            "name": "ullamco eu",
+            "price": 0
+          },
+          {
+            "name": "et anim",
+            "price": 2
+          },
+          {
+            "name": "id non",
+            "price": 0
+          }
+        ]
+      },
+      {
+        "headline": "in reprehenderit sunt",
+        "min": 0,
+        "max": 3,
+        "options": [
+          {
+            "name": "voluptate culpa",
+            "price": 0
+          },
+          {
+            "name": "aute sit",
+            "price": 0
+          },
+          {
+            "name": "amet excepteur",
+            "price": 2
+          },
+          {
+            "name": "consequat in",
+            "price": 3
+          },
+          {
+            "name": "non qui",
+            "price": 3
+          }
+        ]
+      }
+    ]
+  }
 
   constructor(private dataService: DataService, private modalService: ItemModalService) { 
     this.categories = this.dataService.getData();

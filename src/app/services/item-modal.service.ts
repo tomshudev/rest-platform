@@ -26,7 +26,7 @@ export class ItemModalService {
   selectItem(item) {
       // If the item is a regular item - add it automatically
       // Otherwise, go to edit the item in the modal
-      if (item && !item.ingredients_cats) {
+      if (item && (!item.options || item.options.length === 0)) {
         this.cartService.addItem(item);
       } else {
         this.updateListeners(item);
