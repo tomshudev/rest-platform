@@ -1,0 +1,21 @@
+@import '../../assets/global_variables.scss';
+
+.option {
+
+    font-size: 1.6rem;
+
+    &__description {
+
+        padding: 1rem;
+        font-size: 1.8rem;
+        font-weight: 300;
+
+        &--option {
+            color: $color-black;
+        }
+
+        &--required {
+            color: $color-yellow-1;
+        }
+    }
+}

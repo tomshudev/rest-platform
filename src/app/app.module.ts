@@ -19,6 +19,7 @@ import { Constants } from './services/constants.service';
 import { OrderMenuHeaderComponent } from './order-menu-header/order-menu-header.component';
 import { OrderMenuItemModalComponent } from './order-menu-item-modal/order-menu-item-modal.component';
 import { ItemModalService } from './services/item-modal.service';
+import { OrderMenuItemModalOptionComponent } from './order-menu-item-modal-option/order-menu-item-modal-option.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ItemModalService } from './services/item-modal.service';
     OrderMenuDetailsCartComponent,
     OrderMenuDetailsCartItemComponent,
     OrderMenuHeaderComponent,
-    OrderMenuItemModalComponent
+    OrderMenuItemModalComponent,
+    OrderMenuItemModalOptionComponent
   ],
   imports: [
     BrowserModule,

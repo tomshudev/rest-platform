@@ -1,0 +1,8 @@
+<div class="option">
+    {{option.headline}}
+    <div class="option__description" *ngIf="state !== itemsState.NotRequired" 
+            [ngClass]="(state === itemsState.MaxItems || state === itemsState.MaxOneItem) ? 
+                            'option__description--option' : 'option__description--required'">
+        {{ getDescriptionText() }}
+    </div>
+</div>
