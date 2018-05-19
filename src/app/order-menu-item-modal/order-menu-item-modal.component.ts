@@ -15,15 +15,20 @@ export class OrderMenuItemModalComponent implements OnInit {
 
   constructor(private modalService: ItemModalService) {}
 
+  unselectItem() {
+    this.modalService.selectItem(undefined);
+            	
+    $( "body").unbind("click");
+  }
+
   ngOnInit() {
     $('body').click(() => {
         if (this.firstClick) {
             this.firstClick = false;
         } else {
             this.firstClick = true;
-            this.modalService.selectItem(undefined);
-            	
-            $( "body").unbind( "click" )
+            
+            this.unselectItem();
         }
     });
 
