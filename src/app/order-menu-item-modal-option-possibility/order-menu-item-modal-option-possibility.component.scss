@@ -1,0 +1,43 @@
+
+@import '../../assets/global_variables.scss';
+
+.possibility {
+
+    margin: 0 .5rem;
+    padding: 1rem;
+    background-color: $color-light-gray-2;
+    border: 1px solid $color-black;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+        background-color: 	#C0C0C0;
+    }
+
+    &--selected {
+        background-color: $color-yellow-2;
+
+        &:hover {
+            background-color: $color-yellow-1;
+        }
+    }
+
+    &--blocked {
+        background-color: $color-light-gray-1;
+        color: $color-dark-gray-1;
+        cursor: not-allowed;
+
+        &:hover {
+            background-color: $color-light-gray-1;
+        }
+    }
+
+    &__data {
+
+    }
+
+    &__text {
+        text-transform: capitalize;
+    }
+}

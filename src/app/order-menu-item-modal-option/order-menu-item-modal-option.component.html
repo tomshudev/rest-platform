@@ -1,4 +1,4 @@
-<div class="option">
+<div class="option" id="option-{{option._id}}">
     <div class="option__headline">{{option.headline}}</div>
     
     <div class="option__description" *ngIf="state !== itemsState.NotRequired" 
@@ -8,6 +8,6 @@
     </div>
 
     <div class="option__possibilities">
-        <app-order-menu-item-modal-option-possibility *ngFor="let pos of option.options"></app-order-menu-item-modal-option-possibility>
+        <app-order-menu-item-modal-option-possibility *ngFor="let pos of option.options" [optionID]="option._id" [option]="pos" (click)="itemSelected(pos)"></app-order-menu-item-modal-option-possibility>
     </div>
 </div>

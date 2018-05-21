@@ -1,3 +1,6 @@
-<p>
-  order-menu-item-modal-option-possibility works!
-</p>
+<div class="possibility pos-option-{{optionID}}" id="posibility-{{option._id}}">
+    <div class="possibility__data">
+        <div class="possibility__text">{{option.name}}</div>
+        <div class="possibility__price" *ngIf="option.price && option.price > 0">{{option.price}}$</div>
+    </div>
+</div>

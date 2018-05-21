@@ -26,4 +26,8 @@
             color: $color-yellow-1;
         }
     }
+
+    &__possibilities {
+        display: flex;
+    }
 }

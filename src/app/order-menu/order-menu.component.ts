@@ -12,84 +12,71 @@ export class OrderMenuComponent implements OnInit, ItemModalListener {
   
   categories = null;
   selectedItem = {
-    "_id": "5b002fc4078f7d6810bc033a",
-    "name": "non aute",
-    "photo": "5.jpg",
-    "price": "22.2156",
-    "description": "labore officia incididunt voluptate sunt adipisicing",
+    "_id": "5b00496f664e555b6b637cf9",
+    "name": "cupidatat non",
+    "photo": "15.jpg",
+    "price": "109.6775",
+    "description": "exercitation ut sit esse ea eu",
     "options": [
       {
-        "headline": "mollit nostrud veniam",
-        "min": 0,
-        "max": 0,
-        "options": [
-          {
-            "name": "adipisicing pariatur",
-            "price": 3
-          },
-          {
-            "name": "et exercitation",
-            "price": 1
-          },
-          {
-            "name": "eiusmod laborum",
-            "price": 3
-          },
-          {
-            "name": "irure anim",
-            "price": 0
-          }
-        ]
-      },
-      {
-        "headline": "sit minim Lorem",
+        "_id": "5b00496f5ed74ffff42e6615",
+        "headline": "eiusmod exercitation sit",
         "min": 2,
-        "max": 0,
-        "options": [
-          {
-            "name": "ullamco eu",
-            "price": 0
-          },
-          {
-            "name": "et anim",
-            "price": 2
-          },
-          {
-            "name": "id non",
-            "price": 0
-          }
-        ]
-      },
-      {
-        "headline": "in reprehenderit sunt",
-        "min": 0,
         "max": 3,
         "options": [
           {
-            "name": "voluptate culpa",
-            "price": 0
-          },
-          {
-            "name": "aute sit",
-            "price": 0
-          },
-          {
-            "name": "amet excepteur",
-            "price": 2
-          },
-          {
-            "name": "consequat in",
+            "_id": "5b00496ff4f3e9f353365232",
+            "name": "dolore id",
             "price": 3
           },
           {
-            "name": "non qui",
+            "_id": "5b00496f2eb4df0535c52013",
+            "name": "duis fugiat",
+            "price": 1
+          },
+          {
+            "_id": "5b00496f2a3dc26c43377b82",
+            "name": "exercitation qui",
+            "price": 2
+          },
+          {
+            "_id": "5b00496f281d0f149d4ee666",
+            "name": "occaecat cillum",
+            "price": 3
+          }
+        ]
+      },
+      {
+        "_id": "5b00496f4b9ab2432d4eb4e9",
+        "headline": "nulla adipisicing non",
+        "min": 1,
+        "max": 0,
+        "options": [
+          {
+            "_id": "5b00496f707a61948cc01b5e",
+            "name": "voluptate anim",
+            "price": 1
+          },
+          {
+            "_id": "5b00496f986c365864d4c5e2",
+            "name": "ad elit",
+            "price": 0
+          },
+          {
+            "_id": "5b00496f7381acea6d28cf80",
+            "name": "labore commodo",
+            "price": 3
+          },
+          {
+            "_id": "5b00496f23568ec9d577cb47",
+            "name": "adipisicing consectetur",
             "price": 3
           }
         ]
       }
     ]
   }
-
+  
   constructor(private dataService: DataService, private modalService: ItemModalService) { 
     this.categories = this.dataService.getData();
     this.modalService.subscribe(this);
