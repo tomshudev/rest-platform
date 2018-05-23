@@ -81,7 +81,7 @@ getDescriptionText() {
 
         // If the option does not already in the selected options, add it to the list and add the selected class
         // Otherwise, remove it from the list and remove the selected class
-        if (!posibility.checked ||
+        if (!posibility.checked &&
             (this.option.selectedOptions.indexOf(posibility) === -1) &&
                 ((this.state !== ItemsState.MaxItems && this.state !== ItemsState.MaxOneItem && !doesFillTerms) ||
                 ((this.state === ItemsState.MaxItems || this.state === ItemsState.MaxOneItem || this.state === ItemsState.MinMaxItems || this.state === ItemsState.MinItemMaxItems) && amount < this.option.max))) {
@@ -152,7 +152,10 @@ getDescriptionText() {
 
       this.state = this.getItemsState();
       this.doesFillTerms();
-      this.updateOthers();
+
+      setTimeout(() => {
+          this.updateOthers();
+      }, 0);
 
       $('.possibility--blocked').click((e) => {
             e.preventDefault();
