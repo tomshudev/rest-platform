@@ -8,6 +8,7 @@
                 <div class="cart-item__price">{{item.newPrice ? item.newPrice : item.price}}$</div>
             </div>
             <div class="cart-item__description">{{item.description}}</div>
+            <div class="cart-item__options" *ngIf="item.optionsText">{{item.optionsText}}</div>
         </div>
     </div>
 

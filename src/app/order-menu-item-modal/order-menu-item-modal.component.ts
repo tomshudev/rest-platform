@@ -35,16 +35,16 @@ export class OrderMenuItemModalComponent implements OnInit {
   }
 
   addToCart() {
-      let optionsText = "";
+      let optionsText = [];
       let newPrice = parseFloat(this.item.price);
 
       // Adding each option to the list and summing the price
       this.item.selectedOptions.forEach(option => {
-          optionsText = `${optionsText}, ${option.name}`;
+          optionsText.push(option.name);
           newPrice += option.price ? parseFloat(option.price) : 0;
       });
 
-      this.item.optionsText = optionsText;
+      this.item.optionsText = optionsText.join(', ');
       this.item.newPrice = newPrice.toFixed(2);
 
       // Adding the item to the cart
