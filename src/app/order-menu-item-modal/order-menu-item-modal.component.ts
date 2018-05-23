@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ItemModalListener, ItemModalService } from '../services/item-modal.service';
+import { CartService } from '../services/cart.service';
 
 declare var $:any;
 
@@ -13,7 +14,7 @@ export class OrderMenuItemModalComponent implements OnInit {
   @Input() item: any;
   firstClick = true;
 
-  constructor(private modalService: ItemModalService) { }
+  constructor(private modalService: ItemModalService, private cartService: CartService) { }
 
   unselectItem() {
     this.modalService.selectItem(undefined);
@@ -33,6 +34,23 @@ export class OrderMenuItemModalComponent implements OnInit {
       return result;
   }
 
+  addToCart() {
+      let optionsText = "";
+      let newPrice = parseFloat(this.item.price);
+
+      // Adding each option to the list and summing the price
+      this.item.selectedOptions.forEach(option => {
+          optionsText = `${optionsText}, ${option.name}`;
+          newPrice += option.price ? parseFloat(option.price) : 0;
+      });
+
+      this.item.optionsText = optionsText;
+      this.item.newPrice = newPrice.toFixed(2);
+
+      // Adding the item to the cart
+      this.cartService.addItem(this.item);
+  }
+
   ngOnInit() {
     $('body').click(() => {
         if (this.firstClick) {
@@ -49,6 +67,7 @@ export class OrderMenuItemModalComponent implements OnInit {
     })
 
     this.item.terms = [];
+    this.item.selectedOptions = [];
 
     this.item.options.forEach(option => {
         this.item.terms[option.headline] = false;

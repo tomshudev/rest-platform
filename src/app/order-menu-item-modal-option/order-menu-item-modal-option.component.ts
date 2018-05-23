@@ -87,7 +87,8 @@ getDescriptionText() {
             this.selectedOptions.push(posibility);
             $(`#posibility-${posibility._id}`).addClass('possibility--selected');
         } else {
-            this.selectedOptions = this.selectedOptions.filter((val) => val.name !== posibility.name);
+            this.selectedOptions = this.selectedOptions.filter((val) => val._id !== posibility._id);
+            this.item.selectedOptions = this.item.selectedOptions.filter((val) => val._id !== posibility._id);
             $(`#posibility-${posibility._id}`).removeClass('possibility--selected');
         }
 
@@ -116,10 +117,29 @@ getDescriptionText() {
             ((this.state === ItemsState.MinItemMaxItems || this.state === ItemsState.MinMaxItems) && amount >= this.option.min && amount <= this.option.max)) {
             
                 doesFillTerms = true;
+
+                // Adding the options to the item's selected options
+                this.addOptions();
         }
 
         this.item.terms[this.option.headline] = doesFillTerms;
         return doesFillTerms;
+    }
+
+
+    addOptions() {
+        // Running over all the current selected options
+        this.selectedOptions.forEach(option => {
+            // Checking if can add to the selected options - if the id exists don' add
+            let canAdd = this.item.selectedOptions.filter((curr) => {
+                    return curr._id === option._id
+                }).length === 0;
+            
+            // Adding to the list if needed
+            if (canAdd) {
+                this.item.selectedOptions.push(option)
+            }
+        });
     }
 
   ngOnInit() {
