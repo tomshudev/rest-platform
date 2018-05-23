@@ -7,15 +7,36 @@
 
     position: relative;
 
-    &__add {
-        height: 4rem;
-        width: fit-content;
-        padding: 2rem;
-        background-color: aqua;
-        position: absolute;
+    display: flex;
+    flex-direction: column;
 
-        bottom: 2rem;
-        right: 2rem;
+    &__add {
+        padding: 2rem;
+        margin: 1rem;
+        width: 60%;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+        background-color: #44bd32;
+        filter: brightness(60%);
+        cursor: not-allowed;
+        transition: all .3s;
+
+        font-family: inherit;
+        color: $color-black;
+        font-size: 2rem;
+        font-weight: 300;
+
+        align-self: center;
+
+        &:enabled {
+            filter: brightness(100%);
+            cursor: pointer;
+        }
+
+        &:enabled:hover {
+            background-color: #4cd137;
+        }
     }
 
     &__button {
@@ -135,7 +156,7 @@
 
     &__chooser {
         padding: 2rem;
-        height: calc(100% - 30rem);
+        height: calc(100% - 38rem);
         overflow-y: auto;
     }
 }
