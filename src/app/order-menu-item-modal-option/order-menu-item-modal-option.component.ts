@@ -76,18 +76,21 @@ getDescriptionText() {
 }
 
     itemSelected(posibility) {
-        let amount = this.selectedOptions.length;
+        let amount = this.option.selectedOptions.length;
         let doesFillTerms = this.item.terms[this.option.headline];
 
         // If the option does not already in the selected options, add it to the list and add the selected class
         // Otherwise, remove it from the list and remove the selected class
-        if ((this.selectedOptions.indexOf(posibility) === -1) &&
+        if (!posibility.checked ||
+            (this.option.selectedOptions.indexOf(posibility) === -1) &&
                 ((this.state !== ItemsState.MaxItems && this.state !== ItemsState.MaxOneItem && !doesFillTerms) ||
                 ((this.state === ItemsState.MaxItems || this.state === ItemsState.MaxOneItem || this.state === ItemsState.MinMaxItems || this.state === ItemsState.MinItemMaxItems) && amount < this.option.max))) {
-            this.selectedOptions.push(posibility);
+            posibility.checked = true;
+            this.option.selectedOptions.push(posibility);
             $(`#posibility-${posibility._id}`).addClass('possibility--selected');
         } else {
-            this.selectedOptions = this.selectedOptions.filter((val) => val._id !== posibility._id);
+            posibility.checked = false;
+            this.option.selectedOptions = this.option.selectedOptions.filter((val) => val._id !== posibility._id);
             this.item.selectedOptions = this.item.selectedOptions.filter((val) => val._id !== posibility._id);
             $(`#posibility-${posibility._id}`).removeClass('possibility--selected');
         }
@@ -99,7 +102,7 @@ getDescriptionText() {
     }
 
     updateOthers() {
-        let amount = this.selectedOptions.length;
+        let amount = this.option.selectedOptions.length;
 
         if (amount === this.option.max) {
             $(`.pos-option-${this.option._id}`).not('.possibility--selected').addClass('possibility--blocked');
@@ -109,7 +112,7 @@ getDescriptionText() {
     }
 
     doesFillTerms() {
-        let amount = this.selectedOptions.length;
+        let amount = this.option.selectedOptions.length;
         let doesFillTerms = false    
 
         if (((this.state === ItemsState.MaxItems || this.state === ItemsState.MaxOneItem) && amount <= this.option.max && amount >= this.option.min) ||
@@ -129,7 +132,7 @@ getDescriptionText() {
 
     addOptions() {
         // Running over all the current selected options
-        this.selectedOptions.forEach(option => {
+        this.option.selectedOptions.forEach(option => {
             // Checking if can add to the selected options - if the id exists don' add
             let canAdd = this.item.selectedOptions.filter((curr) => {
                     return curr._id === option._id
@@ -143,8 +146,13 @@ getDescriptionText() {
     }
 
   ngOnInit() {
+      if (!this.option.selectedOptions) {
+        this.option.selectedOptions = [];
+      }
+
       this.state = this.getItemsState();
       this.doesFillTerms();
+      this.updateOthers();
 
       $('.possibility--blocked').click((e) => {
             e.preventDefault();

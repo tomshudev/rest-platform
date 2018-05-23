@@ -47,6 +47,27 @@ export class CartService {
       newItem._cartID = this.getNextID();
       this.cart.push(newItem);
 
+      let newOptions = [];
+
+      item.options.forEach(option => {
+          let newOpt = Object.assign({}, option);
+          newOpt.options = [];
+          newOpt.selectedOptions = [];
+
+          option.options.forEach(pos => {
+              let newPos = Object.assign({}, pos);
+
+              newPos.checked = false;
+              newOpt.options.push(newPos);
+          });
+
+          newOptions.push(newOpt);
+      });
+
+      item.options = newOptions;
+
+      item.terms = [];
+
       this.updateListeners(this.subscribers[0].itemAdded);
   }
 
