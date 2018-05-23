@@ -5,6 +5,8 @@ declare var $:any;
 enum ItemsState {
   MaxItems,
   MaxOneItem,
+  MinMaxItems,
+  MinItemMaxItems,
   MinItems,
   MinOneItem,
   NotRequired
@@ -17,6 +19,7 @@ enum ItemsState {
 })
 export class OrderMenuItemModalOptionComponent implements OnInit {
 
+  @Input() item: any;
   @Input() option: any;
   state = null;
 
@@ -33,6 +36,10 @@ export class OrderMenuItemModalOptionComponent implements OnInit {
         state = ItemsState.MaxItems;
     } else if (this.option.min === 0 && this.option.max === 1) {
         state = ItemsState.MaxOneItem;
+    } else if (this.option.min > 1 && this.option.min < this.option.max) {
+        state = ItemsState.MinMaxItems;
+    } else if (this.option.min === 1 && this.option.min < this.option.max) {
+        state = ItemsState.MinItemMaxItems;
     } else if (this.option.min > 1) {
         state = ItemsState.MinItems;
     } else if (this.option.min === 1) {
@@ -51,10 +58,18 @@ getDescriptionText() {
         descText = `You can choose up to ${this.option.max} items`;
     } else if (this.state === ItemsState.MaxOneItem) {
         descText = `You can choose up to ${this.option.max} item`;
+    } else if (this.state === ItemsState.MinMaxItems) { 
+        descText = `You must choose ${this.option.min} items and up to ${this.option.max} items`;
+    } else if (this.state === ItemsState.MinItemMaxItems) { 
+        descText = `You must choose ${this.option.min} item and up to ${this.option.max} items`;
     } else if (this.state === ItemsState.MinItems) {
         descText = `You must choose ${this.option.min} items`;
+
+        this.option.max = this.option.min;
     } else if (this.state === ItemsState.MinOneItem) {
         descText = `You must choose ${this.option.min} item`;
+
+        this.option.max = this.option.min;
     }
 
     return descText;
@@ -62,12 +77,13 @@ getDescriptionText() {
 
     itemSelected(posibility) {
         let amount = this.selectedOptions.length;
+        let doesFillTerms = this.item.terms[this.option.headline];
 
         // If the option does not already in the selected options, add it to the list and add the selected class
         // Otherwise, remove it from the list and remove the selected class
         if ((this.selectedOptions.indexOf(posibility) === -1) &&
-                (((this.state === ItemsState.MaxItems || this.state === ItemsState.MaxOneItem) && amount < this.option.max) ||
-                ((this.state === ItemsState.MinItems || this.state === ItemsState.MinOneItem) && amount < this.option.min))) {
+                ((this.state !== ItemsState.MaxItems && this.state !== ItemsState.MaxOneItem && !doesFillTerms) ||
+                ((this.state === ItemsState.MaxItems || this.state === ItemsState.MaxOneItem || this.state === ItemsState.MinMaxItems || this.state === ItemsState.MinItemMaxItems) && amount < this.option.max))) {
             this.selectedOptions.push(posibility);
             $(`#posibility-${posibility._id}`).addClass('possibility--selected');
         } else {
@@ -76,24 +92,39 @@ getDescriptionText() {
         }
 
         this.updateOthers();
+
+        // Checking the terms
+        doesFillTerms = this.doesFillTerms();
     }
 
     updateOthers() {
         let amount = this.selectedOptions.length;
 
-        if (((this.state === ItemsState.MaxItems || this.state === ItemsState.MaxOneItem) && amount === this.option.max) ||
-            ((this.state === ItemsState.MinItems || this.state === ItemsState.MinOneItem) && amount === this.option.min)) {
-            
-                //$(`#option-${this.option._id}>.option__possibilities>app-order-menu-item-modal-option-possibility>.possibility`).not('.possibility--selected').addClass('possibility--blocked');
+        if (amount === this.option.max) {
             $(`.pos-option-${this.option._id}`).not('.possibility--selected').addClass('possibility--blocked');
         } else {
-
             $(`.pos-option-${this.option._id}`).not('.possibility--selected').removeClass('possibility--blocked');
         }
     }
 
+    doesFillTerms() {
+        let amount = this.selectedOptions.length;
+        let doesFillTerms = false    
+
+        if (((this.state === ItemsState.MaxItems || this.state === ItemsState.MaxOneItem) && amount <= this.option.max && amount >= this.option.min) ||
+            ((this.state === ItemsState.MinItems || this.state === ItemsState.MinOneItem) && amount === this.option.min) ||
+            ((this.state === ItemsState.MinItemMaxItems || this.state === ItemsState.MinMaxItems) && amount >= this.option.min && amount <= this.option.max)) {
+            
+                doesFillTerms = true;
+        }
+
+        this.item.terms[this.option.headline] = doesFillTerms;
+        return doesFillTerms;
+    }
+
   ngOnInit() {
       this.state = this.getItemsState();
+      this.doesFillTerms();
 
       $('.possibility--blocked').click((e) => {
             e.preventDefault();

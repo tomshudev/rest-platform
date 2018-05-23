@@ -13,12 +13,24 @@ export class OrderMenuItemModalComponent implements OnInit {
   @Input() item: any;
   firstClick = true;
 
-  constructor(private modalService: ItemModalService) {}
+  constructor(private modalService: ItemModalService) { }
 
   unselectItem() {
     this.modalService.selectItem(undefined);
             	
     $( "body").unbind("click");
+  }
+
+  checkDataFilled() {
+      let result = true;
+
+      this.item.options.forEach(option => {
+          if (!this.item.terms[option.headline]) {
+            result = false;
+          }
+      });
+
+      return result;
   }
 
   ngOnInit() {
@@ -35,6 +47,12 @@ export class OrderMenuItemModalComponent implements OnInit {
     $('#item-modal').click((e) => {
         e.stopPropagation();
     })
+
+    this.item.terms = [];
+
+    this.item.options.forEach(option => {
+        this.item.terms[option.headline] = false;
+    });
   }
 
 }

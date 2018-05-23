@@ -28,6 +28,8 @@
     </div>
     
     <div class="item-modal__chooser">
-        <app-order-menu-item-modal-option *ngFor="let option of item.options" [option]="option"></app-order-menu-item-modal-option>
+        <app-order-menu-item-modal-option *ngFor="let option of item.options" [option]="option" [item]="item"></app-order-menu-item-modal-option>
     </div>
+
+    <button class="item-modal__add" [disabled]="!checkDataFilled()" (click)="addToCart()">Add to cart &rarr;</button>
 </div>
