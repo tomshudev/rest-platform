@@ -13,7 +13,7 @@
     </div>
 
     <div class="cart-item__buttons">
-        <div class="cart-item__buttons--button fa fa-edit"></div>
+        <div class="cart-item__buttons--button fa fa-edit" (click)="editItem()" *ngIf="item.options && item.options.length > 0"></div>
         <div class="cart-item__buttons--button fa fa-plus" (click)="addItem()"></div>
         <div class="cart-item__buttons--button fa fa-trash" (click)="removeItem()"></div>
     </div>
