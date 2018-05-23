@@ -12,6 +12,7 @@ export class OrderMenuComponent implements OnInit, ItemModalListener {
   
   categories = null;
   selectedItem = {
+    "isEditing": false,
     "_id": "5b052ee1fe19917850e8c5ec",
     "name": "ad quis",
     "photo": "7.jpg",
@@ -224,7 +225,12 @@ export class OrderMenuComponent implements OnInit, ItemModalListener {
     this.modalService.subscribe(this);
   }
 
-  itemSelected(item: any) {
+  itemSelected(item: any, isEditing: boolean) {
+    // Setting wether the item is in editing mode
+    if (item) {
+        item.isEditing = isEditing;
+    }
+
     this.selectedItem = item;
   }
 

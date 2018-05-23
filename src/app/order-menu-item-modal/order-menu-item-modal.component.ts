@@ -17,7 +17,7 @@ export class OrderMenuItemModalComponent implements OnInit {
   constructor(private modalService: ItemModalService, private cartService: CartService) { }
 
   unselectItem() {
-    this.modalService.selectItem(undefined);
+    this.modalService.selectItem(undefined, false);
             	
     $( "body").unbind("click");
   }

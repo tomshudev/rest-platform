@@ -43,30 +43,40 @@ export class CartService {
   }
 
   addItem(item) {
-      let newItem = Object.assign({}, item);
-      newItem._cartID = this.getNextID();
-      this.cart.push(newItem);
+      // If the item is in editing mode - don't create new one - replace the old one
+      if (item.isEditing) {
+        // Searching the edited item and replace it with the new item
+        this.cart.filter((elem, index, cart) => {
+            if (elem._cartID === item._cartID) {
+                cart[index] = item;
+            }
+        })
+      } else {
+        let newItem = Object.assign({}, item);
+        newItem._cartID = this.getNextID();
+        this.cart.push(newItem);
 
-      let newOptions = [];
+        let newOptions = [];
 
-      item.options.forEach(option => {
-          let newOpt = Object.assign({}, option);
-          newOpt.options = [];
-          newOpt.selectedOptions = [];
+        item.options.forEach(option => {
+            let newOpt = Object.assign({}, option);
+            newOpt.options = [];
+            newOpt.selectedOptions = [];
 
-          option.options.forEach(pos => {
-              let newPos = Object.assign({}, pos);
+            option.options.forEach(pos => {
+                let newPos = Object.assign({}, pos);
 
-              newPos.checked = false;
-              newOpt.options.push(newPos);
-          });
+                newPos.checked = false;
+                newOpt.options.push(newPos);
+            });
 
-          newOptions.push(newOpt);
-      });
+            newOptions.push(newOpt);
+        });
 
-      item.options = newOptions;
+        item.options = newOptions;
 
-      item.terms = [];
+        item.terms = [];  
+      }
 
       this.updateListeners(this.subscribers[0].itemAdded);
   }

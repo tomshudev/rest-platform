@@ -26,7 +26,7 @@ export class OrderMenuDetailsCartItemComponent implements OnInit {
   }
 
   editItem() {
-    this.modalService.selectItem(this.item);
+    this.modalService.selectItem(this.item, true);
   }
 
   ngOnInit() {

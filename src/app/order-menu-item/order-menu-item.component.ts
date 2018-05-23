@@ -15,7 +15,7 @@ export class OrderMenuItemComponent implements OnInit {
   constructor(private modalService: ItemModalService) { }
 
   addItem() {
-      this.modalService.selectItem(this.serving);
+      this.modalService.selectItem(this.serving, false);
   }
 
   ngOnInit() {
