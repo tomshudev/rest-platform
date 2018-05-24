@@ -13,6 +13,7 @@ export class OrderMenuItemModalComponent implements OnInit {
   
   @Input() item: any;
   firstClick = true;
+  warningMessage = "You must check the needed boxes"
 
   constructor(private modalService: ItemModalService, private cartService: CartService) { }
 
@@ -49,6 +50,9 @@ export class OrderMenuItemModalComponent implements OnInit {
 
       // Adding the item to the cart
       this.cartService.addItem(this.item);
+
+      // Unselecting the item in order to close the modal
+      this.modalService.selectItem(undefined, false);
   }
 
   ngOnInit() {
