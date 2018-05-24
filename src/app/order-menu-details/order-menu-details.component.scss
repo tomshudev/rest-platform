@@ -154,6 +154,7 @@
         padding: 1rem 3rem;
         border-radius: 10px;
         border: none;
+        color: $color-black;
         filter: brightness(70%);
         background: $color-yellow-1;
         cursor: not-allowed;
@@ -167,7 +168,6 @@
 
         &:enabled:hover {
             background-color: $color-yellow-2;
-            color: $color-dark-gray-1;
         }
 
         &--tooltip {
