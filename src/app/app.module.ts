@@ -21,6 +21,7 @@ import { OrderMenuItemModalComponent } from './order-menu-item-modal/order-menu-
 import { ItemModalService } from './services/item-modal.service';
 import { OrderMenuItemModalOptionComponent } from './order-menu-item-modal-option/order-menu-item-modal-option.component';
 import { OrderMenuItemModalOptionPossibilityComponent } from './order-menu-item-modal-option-possibility/order-menu-item-modal-option-possibility.component';
+import { OrderPageSummarizeComponent } from './order-page-summarize/order-page-summarize.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { OrderMenuItemModalOptionPossibilityComponent } from './order-menu-item-
     OrderMenuHeaderComponent,
     OrderMenuItemModalComponent,
     OrderMenuItemModalOptionComponent,
-    OrderMenuItemModalOptionPossibilityComponent
+    OrderMenuItemModalOptionPossibilityComponent,
+    OrderPageSummarizeComponent
   ],
   imports: [
     BrowserModule,

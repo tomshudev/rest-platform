@@ -23,6 +23,6 @@
     </div>
 
     <div class="order-details__order-button--tooltip" placement="top" [ngbTooltip]="warningMessage" [disableTooltip]="canOrder()">
-        <button class="order-details__order-button" [disabled]="!canOrder()">Order &rarr;</button>
+        <button class="order-details__order-button" routerLink="/ordersum" [disabled]="!canOrder()">Order &rarr;</button>
     </div>
 </div>
