@@ -1,0 +1,33 @@
+@import '../../assets/global_variables.scss';
+
+.option {
+
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+
+    &__headline {
+        margin-bottom: 1rem;
+        text-transform: capitalize;
+        font-weight: 700;
+    }
+
+    &__description {
+
+        padding: 1rem;
+        padding-top: 0;
+        font-size: 1.8rem;
+        font-weight: 300;
+
+        &--option {
+            color: $color-black;
+        }
+
+        &--required {
+            color: $color-yellow-1;
+        }
+    }
+
+    &__possibilities {
+        display: flex;
+    }
+}

@@ -5,14 +5,15 @@
         <div class="cart-item__main-details--text">
             <div class="cart-item__main-details--text-aligned">
                 <div class="cart-item__name">{{item.name}}</div>
-                <div class="cart-item__price">{{item.price}}$</div>
+                <div class="cart-item__price">{{item.newPrice ? item.newPrice : item.price}}$</div>
             </div>
             <div class="cart-item__description">{{item.description}}</div>
+            <div class="cart-item__options" *ngIf="item.optionsText">{{item.optionsText}}</div>
         </div>
     </div>
 
     <div class="cart-item__buttons">
-        <div class="cart-item__buttons--button fa fa-edit"></div>
+        <div class="cart-item__buttons--button fa fa-edit" (click)="editItem()" *ngIf="item.options && item.options.length > 0"></div>
         <div class="cart-item__buttons--button fa fa-plus" (click)="addItem()"></div>
         <div class="cart-item__buttons--button fa fa-trash" (click)="removeItem()"></div>
     </div>

@@ -19,6 +19,8 @@ export class OrderMenuDetailsComponent implements OnInit, CartEventListener {
       this.cartService.subscribe(this);
 
       this.method = constants.orderMethods.order;
+
+      this.cart = this.cartService.getCart();
   }
 
   /**
@@ -57,7 +59,9 @@ export class OrderMenuDetailsComponent implements OnInit, CartEventListener {
 
       // If the cart is not empty running over each item and sums it's price
       if (this.cart) {
-          this.cart.forEach(item => { cartPrice += parseFloat(item.price) });
+          this.cart.forEach(item => { 
+              cartPrice += item.newPrice ? parseFloat(item.newPrice) : parseFloat(item.price)
+        });
       }
 
       return cartPrice.toFixed(2);

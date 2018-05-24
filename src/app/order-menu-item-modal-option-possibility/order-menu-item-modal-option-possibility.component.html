@@ -1,0 +1,11 @@
+<div class="possibility pos-option-{{optionID}}" id="posibility-{{option._id}}" [ngClass]="option.checked ? 'possibility--selected' : ''">
+    <div class="possibility__data">
+        <div class="possibility__button--regular" *ngIf="!option.price || option.price <= 0">
+                <div class="possibility__text">{{option.name}}</div>
+        </div>
+        <div class="possibility__button--price" *ngIf="option.price">
+            <div class="possibility__text">{{option.name}}</div>
+            <div class="possibility__price">{{option.price}}$</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="item-modal">
+    <div class="item-modal__button item-modal__close" (click)="unselectItem()">&times;</div>
+
+    <div class="item-modal__header">
+        <div class="item-modal__header__photo--container">
+            <img src="assets/img/{{item.photo}}" alt="{{item.name}}" class="item-modal__header__photo">
+        </div>
+
+        <div class="item-modal__header--data">
+            <div class="item-modal__header--data-photo--container">
+                <img src="assets/img/{{item.photo}}" alt="{{item.name}}" class="item-modal__header--data__photo">
+            </div>
+
+            <div class="item-modal__header--data--head">
+                <div class="item-modal__header--headline">{{item.name}}</div>
+                <div class="item-modal__header--description">{{item.description}}</div>
+            
+
+                <div class="item-modal__header--data-bottom">
+                    <div class="item-modal__header--price">{{item.price}}$</div>
+                    <div class="item-modal__header--like-button">
+                        <div class="item-modal__button item-modal__like"><i class="fa fa-heart"></i></div> 
+                        <span class="item-modal__header--like-button-text">Add to my favorite meals</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="item-modal__chooser">
+        <app-order-menu-item-modal-option *ngFor="let option of item.options" [option]="option" [item]="item"></app-order-menu-item-modal-option>
+    </div>
+
+    <button class="item-modal__add" [disabled]="!checkDataFilled()" (click)="addToCart()">{{item.isEditing ? 'Update' : 'Add to cart'}} &rarr;</button>
+</div>

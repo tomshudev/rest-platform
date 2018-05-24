@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { ItemModalListener, ItemModalService } from '../services/item-modal.service';
 declare var $:any;
 
 @Component({
@@ -7,12 +8,37 @@ declare var $:any;
   templateUrl: './order-menu.component.html',
   styleUrls: ['./order-menu.component.scss']
 })
-export class OrderMenuComponent implements OnInit {
+export class OrderMenuComponent implements OnInit, ItemModalListener {
+  
+  categories = null;
+  selectedItem = null;
 
-  categories = null
+  constructor(private dataService: DataService, private modalService: ItemModalService) { 
+    this.categories = this.dataService.getData();
+    this.modalService.subscribe(this);
+  }
 
-  constructor(private dataService: DataService) { 
-    this.categories = this.dataService.getData()
+  itemSelected(item: any, isEditing: boolean) {
+    // Setting wether the item is in editing mode
+    if (item) {
+        item.isEditing = isEditing;
+
+        setTimeout(() => {
+          $('app-order-menu-item-modal').addClass('item-modal__visible');
+          $('app-order-menu-item-modal').removeClass('item-modal__hidden');
+        }, 0);
+
+        this.selectedItem = item;
+    } else {
+      
+      $('app-order-menu-item-modal').removeClass('item-modal__visible');
+      $('app-order-menu-item-modal').addClass('item-modal__hidden');
+
+      // Waiting in order to display the animations
+      setTimeout(() => {
+        this.selectedItem = item;
+      }, 200);
+    }
   }
 
   ngOnInit() {
@@ -21,7 +47,7 @@ export class OrderMenuComponent implements OnInit {
 
         // If the scrolling top has enterd into the menu - set the needed parts as fixed,
         // Otherwise, set it as normal without fixed position
-        if ($('#menu-div').position().top <= scrollTop) {
+        if ($('#menu-div').length !== 0 && $('#menu-div').position().top <= scrollTop) {
               $('.category-chooser').css({ 
                 'position': 'fixed',
                 top: 0
