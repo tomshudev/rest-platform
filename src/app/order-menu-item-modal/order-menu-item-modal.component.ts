@@ -13,6 +13,7 @@ export class OrderMenuItemModalComponent implements OnInit {
   
   @Input() item: any;
   firstClick = true;
+  warningMessage = "You must check the needed boxes"
 
   constructor(private modalService: ItemModalService, private cartService: CartService) { }
 
