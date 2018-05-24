@@ -229,9 +229,23 @@ export class OrderMenuComponent implements OnInit, ItemModalListener {
     // Setting wether the item is in editing mode
     if (item) {
         item.isEditing = isEditing;
-    }
 
-    this.selectedItem = item;
+        setTimeout(() => {
+          $('app-order-menu-item-modal').addClass('item-modal__visible');
+          $('app-order-menu-item-modal').removeClass('item-modal__hidden');
+        }, 0);
+
+        this.selectedItem = item;
+    } else {
+      
+      $('app-order-menu-item-modal').removeClass('item-modal__visible');
+      $('app-order-menu-item-modal').addClass('item-modal__hidden');
+
+      // Waiting in order to display the animations
+      setTimeout(() => {
+        this.selectedItem = item;
+      }, 200);
+    }
   }
 
   ngOnInit() {

@@ -24,6 +24,19 @@ app-order-menu-item-modal {
     z-index: 1000;
 }
 
+.item-modal {
+
+    &__hidden {
+        transition: all .3s;
+        left: -70%;
+    }
+
+    &__visible {
+        transition: all .3s;
+        left: 0;
+    }
+}
+
 .low-brightness-div {
     position: fixed;
     top: 0;
