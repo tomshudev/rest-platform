@@ -27,12 +27,12 @@ app-order-menu-item-modal {
 .item-modal {
 
     &__hidden {
-        transition: all .3s;
+        transition: all .2s;
         left: -70%;
     }
 
     &__visible {
-        transition: all .3s;
+        transition: all .2s;
         left: 0;
     }
 }
