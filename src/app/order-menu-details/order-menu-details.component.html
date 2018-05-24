@@ -22,7 +22,7 @@
         <textarea class="order-details__overview--order-notes" name="order-notes" id="order-notes" placeholder="Order notes"></textarea>
     </div>
 
-    <div class="order-details__order-button">Order &rarr;</div>
-
-    
+    <div class="order-details__order-button--tooltip" placement="top" [ngbTooltip]="warningMessage" [disableTooltip]="canOrder()">
+        <button class="order-details__order-button" [disabled]="!canOrder()">Order &rarr;</button>
+    </div>
 </div>

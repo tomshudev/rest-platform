@@ -14,6 +14,7 @@ export class OrderMenuDetailsComponent implements OnInit, CartEventListener {
 
   cart = null;
   method = null;
+  warningMessage = "";
 
   constructor(private cartService: CartService, private constants: Constants) { 
       this.cartService.subscribe(this);
@@ -65,6 +66,22 @@ export class OrderMenuDetailsComponent implements OnInit, CartEventListener {
       }
 
       return cartPrice.toFixed(2);
+  }
+
+  canOrder() {
+      let canOrder = true;
+
+      // If the cart is empty or the method is order and the price is less than the minimum - 
+      // Can't order, and update the warning message
+      if (this.cart.length === 0) {
+        this.warningMessage = "You need to add items to the cart"
+        canOrder = false;
+      } else if (this.method === this.constants.orderMethods.order && parseFloat(this.getCartPrice()) < 50) {
+        this.warningMessage = "The minimum value for order is 50$";
+        canOrder = false;
+      }
+
+      return canOrder;
   }
 
   ngOnInit() { 
