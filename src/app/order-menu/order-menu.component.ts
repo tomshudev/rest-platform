@@ -74,7 +74,9 @@ export class OrderMenuComponent implements OnInit, ItemModalListener {
                 $('.category-chooser__name').removeClass('category-chooser__name--active');
                 $(`#chooser-${elem.attr('id')}`).addClass('category-chooser__name--active');
 
-                $('.category-chooser').animate({ scrollTop: $(`#chooser-${elem.attr('id')}`).offset().top - $('.category-chooser').offset().top + $('.category-chooser').scrollTop() - 20 }, 0);
+                if ($(`#chooser-${elem.attr('id')}`).offset()) { 
+                    $('.category-chooser').animate({ scrollTop: $(`#chooser-${elem.attr('id')}`).offset().top - $('.category-chooser').offset().top + $('.category-chooser').scrollTop() - 20 }, 0);
+                }
             }
         })
     });

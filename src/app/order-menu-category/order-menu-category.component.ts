@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class OrderMenuCategoryComponent implements OnInit {
 
   @Input() category: object;
+  @Input() isSummarize: boolean;
 
   constructor() { }
 

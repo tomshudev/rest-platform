@@ -11,6 +11,7 @@ import { ItemModalService } from '../services/item-modal.service';
 export class OrderMenuItemComponent implements OnInit {
 
   @Input() serving;
+  @Input() canAdd;
 
   constructor(private modalService: ItemModalService) { }
 

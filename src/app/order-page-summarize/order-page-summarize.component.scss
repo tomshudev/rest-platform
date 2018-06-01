@@ -1,0 +1,20 @@
+.summarize {
+
+    position: relative;
+    display: flex;
+    background-image: url('assets/img/background.png');
+    background-repeat: repeat;
+    background-attachment: fixed;
+
+    & > app-order-menu-details {
+        position: absolute;
+        right: 0;
+        top: -3.1px;
+    }
+
+    & > app-order-menu-category {
+        margin-left: 5rem;
+        margin-top: 4rem;
+        width: calc(100% - 45rem);;
+    }
+}

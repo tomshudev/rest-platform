@@ -7,9 +7,11 @@
 
         <div class="serving__flex">
           <div class="serving__description">{{serving.description}}</div>
+          <div class="serving__user-input" *ngIf="!canAdd">{{serving.optionsText}}</div>
           <div class="serving__price">{{serving.price}}$</div>
         </div>
 
-        <div class="serving__add" (click)="addItem()">Add to cart &#43;</div>
+        <div *ngIf="canAdd" class="serving__button" (click)="addItem()">Add to cart &#43;</div>
+        <div *ngIf="!canAdd" class="serving__button" (click)="removeItem()">Remove from cart &nbsp;<i class="fa fa-trash"></i></div>
     </div>
 </div>
