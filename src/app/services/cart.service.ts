@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 
 export abstract class CartEventListener {
 
-    abstract itemAdded(item);
+    abstract itemAdded(cart);
 
-    abstract itemRemoved(item);
+    abstract itemRemoved(cart);
 }
 
 @Injectable()
@@ -32,11 +32,17 @@ export class CartService {
       this.subscribers.push(listener);
   }
 
-  updateListeners(callFunction: Function) {
+  updateListenersAdd(callFunction: Function) {
       this.subscribers.forEach(listener => {
-          callFunction.call(listener, this.cart);
+          listener.itemAdded(this.cart);
       });
   }
+
+  updateListenersRemove(callFunction: Function) {
+    this.subscribers.forEach(listener => {
+        listener.itemRemoved(this.cart);
+    });
+}
 
   getNextID() {
       return this.cart.length;
@@ -78,12 +84,12 @@ export class CartService {
         item.terms = [];  
       }
 
-      this.updateListeners(this.subscribers[0].itemAdded);
+      this.updateListenersAdd(this.subscribers[0].itemAdded);
   }
 
   removeItem(item) {
       this.cart = this.cart.filter((curr) => curr._cartID !== item._cartID);
 
-      this.updateListeners(this.subscribers[0].itemRemoved);
+      this.updateListenersRemove(this.subscribers[0].itemRemoved);
   }
 }

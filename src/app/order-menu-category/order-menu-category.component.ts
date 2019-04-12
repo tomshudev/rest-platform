@@ -6,12 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./order-menu-category.component.scss']
 })
 export class OrderMenuCategoryComponent implements OnInit {
+  @Input() category: any;
+  @Input() isSummarize: boolean;
 
-  @Input() category: object;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

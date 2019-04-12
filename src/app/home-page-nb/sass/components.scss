@@ -1,0 +1,62 @@
+.btn {
+  font-size: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &--inline {
+    position: absolute;
+    bottom: 0;
+    color: $color-secondary;
+    padding: 0.4rem;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+
+    &:hover {
+      border-bottom: 2px solid $color-secondary;
+    }
+  }
+
+  &--send {
+    background-color: $color-primary;
+    color: $color-black;
+    border: none;
+    border-radius: 100px;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    backface-visibility: hidden;
+    transition: all 0.2s;
+    outline: none;
+
+    font-family: inherit;
+    font-size: 1.8rem;
+
+    &:hover {
+      transform: translateY(-3px) scale(1.05);
+      background-color: $color-primary-dark;
+      box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+    }
+
+    &:active {
+      transform: translateY(-1px) scale(1.05);
+      box-shadow: 0 0.5rem 1rem rgba(#000, 0.1);
+    }
+  }
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  overflow: hidden;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    filter: brightness(70%);
+    object-fit: cover;
+    object-position: bottom;
+  }
+}
