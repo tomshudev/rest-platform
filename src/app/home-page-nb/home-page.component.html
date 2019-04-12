@@ -1,0 +1,169 @@
+<link
+  href="https://fonts.googleapis.com/css?family=Dancing+Script|Poiret+One"
+  rel="stylesheet"
+/>
+<nav>
+  <div class="row nav">
+    <input type="checkbox" class="navigation__checkbox" id="navi-toggle" />
+    <label for="navi-toggle" class="navigation__button">
+      <span class="navigation__icon">&nbsp;</span>
+    </label>
+
+    <div class="navigation">
+      <svg class="logo">
+        <use xlink:href="assets/logo.svg#icon-food"></use>
+      </svg>
+
+      <ul class="main-nav">
+        <li class="main-nav__item">
+          <a class="main-nav__link" routerLink="/order">Order food</a>
+        </li>
+        <li class="main-nav__item">
+          <a class="main-nav__link" href="/home#story">Our story</a>
+        </li>
+        <li class="main-nav__item">
+          <a class="main-nav__link" href="/home#contact">Contact us</a>
+        </li>
+        <li class="main-nav__item">
+          <a class="main-nav__link" href="#">Location</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="header">
+  <div class="header__heading">
+    <div class="heading--primary">
+      N&B
+    </div>
+    <div class="heading--secondary">
+      handmade chocholates
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section-story">
+    <div class="row story-row" id="story">
+      <div class="story-div">
+        <h2 class="heading--tertiary">Our story</h2>
+        <p class="paragraph">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+
+        <div class="btn btn--inline">Read more &rarr;</div>
+      </div>
+      <div class="slideshow">
+        <div class="slideshow__photo slideshow__photo--1"></div>
+        <div class="slideshow__photo slideshow__photo--2"></div>
+        <div class="slideshow__photo slideshow__photo--3"></div>
+        <div class="slideshow__photo slideshow__photo--4"></div>
+        <div class="slideshow__photo slideshow__photo--5"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-video">
+    <div class="bg-video">
+      <video
+        class="bg-video__content"
+        autoplay
+        loop
+        oncanplay="this.muted=true"
+      >
+        <source src="assets/video/video1.mp4" type="video/mp4" />
+        <!-- <source src="assets/video/video.webm" type="video/webm" /> -->
+        Your browser is not supported!
+      </video>
+    </div>
+  </section>
+
+  <section class="section-contact">
+    <div class="contact-anchor" id="contact"></div>
+    <div class="contact-div">
+      <div class="contact-div-box">
+        <h2 class="heading--tertiary">contact us</h2>
+
+        <form action="#" class="form" id="contact-form">
+          <div class="form__group">
+            <input
+              type="text"
+              class="form__input"
+              id="name"
+              placeholder="Full name"
+              required
+            />
+            <label for="name" class="form__label">Full name</label>
+          </div>
+
+          <div class="form__group">
+            <input
+              type="email"
+              class="form__input"
+              id="email"
+              placeholder="Email address"
+              required
+            />
+            <label for="email" class="form__label">Email address</label>
+          </div>
+
+          <div class="form__group">
+            <textarea
+              id="message"
+              class="form__input"
+              rows="4"
+              placeholder="Your message"
+              required
+            ></textarea>
+            <label for="message" class="form__label">Your message</label>
+          </div>
+
+          <div class="form__group">
+            <button class="btn btn--send">Send &rarr;</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <svg class="footer--logo">
+    <use xlink:href="assets/logo.svg#icon-food"></use>
+  </svg>
+  <div class="footer__row">
+    <div class="footer__navigation">
+      <ul class="footer__list">
+        <li class="footer__list--item">
+          <a href="/order" class="footer__link">Order food</a>
+        </li>
+        <li class="footer__list--item">
+          <a href="/home#story" class="footer__link">Our story</a>
+        </li>
+        <li class="footer__list--item">
+          <a href="/home#contact" class="footer__link">Contact us</a>
+        </li>
+        <li class="footer__list--item">
+          <a href="#" class="footer__link">Location</a>
+        </li>
+        <li class="footer__list--item">
+          <a href="#" class="footer__link">Terms of use</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer__copyright">
+      Built by <a href="#" class="footer__link">Tom Shushan</a>. Copyright
+      &copy; by Jonas Schmedtman. You are 100% allowed to use this web page for
+      both personal and commercial use, but NOT claim it as your own design. A
+      credit to the original author, Jonas Schmedtman, is of course highly
+      appreciated!
+    </div>
+  </div>
+</footer>

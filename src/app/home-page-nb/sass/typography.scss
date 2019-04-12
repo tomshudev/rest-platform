@@ -1,0 +1,61 @@
+.heading {
+  &--primary {
+    font-size: 7rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    // letter-spacing: 1.5rem;
+    transition: all 0.2s;
+    backface-visibility: hidden;
+    font-family: 'Poiret One', cursive;
+
+    animation: moveInLeft 1.5s ease-in-out;
+
+    &:hover {
+      transform: skewY(2deg) skewX(5deg) scale(1.1);
+      text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+    }
+
+    @include respond(tab-port) {
+      font-size: 4rem;
+    }
+
+    @include respond(phone) {
+      padding-left: 1.5rem;
+    }
+  }
+
+  &--secondary {
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: 0.5rem;
+    font-family: 'Dancing Script', cursive;
+
+    animation: moveInRight 1.5s ease-in-out;
+
+    @include respond(tab-port) {
+      font-size: 2rem;
+    }
+
+    @include respond(phone) {
+      padding-left: 0.5rem;
+    }
+  }
+
+  &--tertiary {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6rem;
+    font-weight: 400;
+  }
+}
+
+.paragraph {
+  font-size: 2.2rem;
+  font-weight: 100;
+  padding-right: 1rem;
+
+  @include respond(tab-land) {
+    margin-bottom: 5rem;
+  }
+}

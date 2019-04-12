@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { CartService } from '../services/cart.service';
+import { CartService, CartEventListener } from '../services/cart.service';
 
 declare var $:any;
 
@@ -9,7 +9,7 @@ declare var $:any;
   templateUrl: './order-page-summarize.component.html',
   styleUrls: ['./order-page-summarize.component.scss']
 })
-export class OrderPageSummarizeComponent implements OnInit {
+export class OrderPageSummarizeComponent implements OnInit, CartEventListener {
 
   cart: any;
 
@@ -17,14 +17,46 @@ export class OrderPageSummarizeComponent implements OnInit {
     this.cart = {
       servings: this.cartService.getCart()
     };
+
+    this.cartService.subscribe(this);
+  }
+
+  updateHeight() {
+    let listHeight = `100vh`;
+
+      if (this.cart.servings.length === 0) {
+          listHeight = `4rem`;
+      } else if (this.cart.servings.length > 0 && this.cart.servings.length < 3) {
+          listHeight = `${(22 * this.cart.servings.length) + 3}rem`;
+      } else if (this.cart.servings.length === 3) {
+        listHeight = `${(22 * this.cart.servings.length) + 2}rem`;
+      }
+
+      //if (listHeight) {
+        $('app-order-menu-category').css({
+            'margin-bottom': `calc(100vh - ${listHeight})`
+        })
+      //}
+  }
+
+  updateCart() {
+      this.cart = {
+        servings: this.cartService.getCart()
+      };
+
+      this.updateHeight();
+  }
+  
+  itemAdded(item: any) {
+      this.updateCart();
+  }
+
+  itemRemoved(item: any) {
+      this.updateCart();
   }
 
   ngOnInit() {
-      let listHeight = this.cart.servings.length > 0 ? (22 * this.cart.servings.length) + 3 : 4;
-
-      $('app-order-menu-category').css({
-          'margin-bottom': `calc(100vh - ${listHeight}rem)`
-      })
+      this.updateHeight();
   }
 
 }

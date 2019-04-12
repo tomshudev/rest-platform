@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -22,7 +22,7 @@ import { ItemModalService } from './services/item-modal.service';
 import { OrderMenuItemModalOptionComponent } from './order-menu-item-modal-option/order-menu-item-modal-option.component';
 import { OrderMenuItemModalOptionPossibilityComponent } from './order-menu-item-modal-option-possibility/order-menu-item-modal-option-possibility.component';
 import { OrderPageSummarizeComponent } from './order-page-summarize/order-page-summarize.component';
-
+import { HomePageNBComponent } from './home-page-nb/home-page-nb.component';
 
 @NgModule({
   declarations: [
@@ -40,19 +40,11 @@ import { OrderPageSummarizeComponent } from './order-page-summarize/order-page-s
     OrderMenuItemModalComponent,
     OrderMenuItemModalOptionComponent,
     OrderMenuItemModalOptionPossibilityComponent,
-    OrderPageSummarizeComponent
+    OrderPageSummarizeComponent,
+    HomePageNBComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule.forRoot()
-  ],
-  providers: [
-    DataService,
-    ItemModalService,
-    CartService,
-    Constants
-  ],
+  imports: [BrowserModule, AppRoutingModule, NgbModule.forRoot()],
+  providers: [DataService, ItemModalService, CartService, Constants],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
